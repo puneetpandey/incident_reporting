@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%h1 Incidents
+
+%table
+  %thead
+    %tr
+      %th School
+      %th Incident Description
+      %th{colspan: "2"} Actions
+
+  %tbody
+    - @incidents.each do |incident|
+      %tr
+        %td= incident.school.name
+        %td= incident.description
+        %td= link_to 'Show', incident
+
+%br
+
+= link_to 'New Incident', new_incident_path

@@ -1,0 +1,94 @@
+= form_with model: [@incident, @incident_detail], local: true do |form|
+  - if @incident_detail.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@incident_detail.errors.count, 'error')} prohibited this incident details from being saved"
+
+      %ul
+        - @incident_detail.errors.full_messages.each do |message|
+          %li= message
+
+  .row
+    .col-sm-3
+      %label Type of Incident
+    .col-sm-9
+      = form.collection_select :incident_type_ids, IncidentType.all, :id, :name, {}, { multiple: true }
+
+  %hr
+
+  .row
+    .col-sm-3
+      = form.label :is_anonymous, "Anonymous Reporting"
+    .col-sm-9
+      = form.check_box :is_anonymous
+
+  %hr
+
+  .user-details
+    .row
+      .col-sm-3
+        = form.label :name
+      .col-sm-9
+        = form.text_field :name
+    %hr
+
+    .row
+      .col-sm-3
+        = form.label :email
+      .col-sm-9
+        = form.email_field :email
+
+    %hr
+
+    .row
+      .col-sm-3
+        = form.label :role
+      .col-sm-9
+        = form.select :role, IncidentDetail::ROLES
+
+  %hr
+
+  .row
+    .col-sm-3
+      = form.label :observed_at, "Date / Time observed"
+    .col-sm-9
+      = form.datetime_select :observed_at, start_year: 1995
+
+  %hr
+
+  .row
+    .col-sm-3
+      = form.label :location
+    .col-sm-9
+      = form.select :location, [ [ "On school campuses and grounds", "On school campuses and grounds" ], [ "During transportation to and from school", "During transportation to and from school" ], [ "At school-sponsored events", "At school-sponsored events" ], [ "More details", "other" ] ]
+
+  %hr
+
+  .row
+    .col-sm-3
+      = form.label :description, "Incident Description*"
+    .col-sm-9
+      = form.text_area :description, placeholder: 'Describe incident in as much detail as possible', rows: 8, cols: 50, required: true
+
+  %hr
+
+  .row
+    .col-sm-3
+      = form.label :people_involved
+    .col-sm-9
+      = form.number_field :people_involved
+
+  %hr
+
+  .people-involved-form
+    .row
+      .col-sm-3
+        %label Details of People Involved
+      .col-sm-9
+        /= form.fields_for :people_involves do | people |
+
+  %hr
+
+  .row
+    .col-sm-3
+    .col-sm-9
+      = form.submit "Submit", class: "btn btn-primary"
