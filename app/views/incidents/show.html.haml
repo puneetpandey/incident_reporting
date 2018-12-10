@@ -23,6 +23,16 @@
     - @incident.incident_pictures.each do | incident_picture |
       = image_tag incident_picture.picture.url, width: "500", height: "500"
 
+- if @incident.incident_detail.present?
+
+  %hr
+
+  .row
+    .col-sm-3
+      %h4 Incident Types
+    .col-sm-9
+      = @incident.incident_detail.incident_types.map { |incident_type| incident_type.name }.join(", ")
+
 .row
   .col-sm-3
   .col-sm-9
