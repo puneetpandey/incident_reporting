@@ -1,5 +1,8 @@
 class IncidentDetail < ApplicationRecord
     ROLES = [ "Student", "Teacher", "Other Staff", "Parent", "Community Member" ]
+
+    validates :description, presence: true
+
     has_many :people_involves, dependent: :destroy
     has_and_belongs_to_many :incident_types
     belongs_to :incident
