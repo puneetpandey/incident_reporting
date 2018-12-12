@@ -61,6 +61,10 @@
     .col-sm-9
       = form.select :location, [ [ "On school campuses and grounds", "On school campuses and grounds" ], [ "During transportation to and from school", "During transportation to and from school" ], [ "At school-sponsored events", "At school-sponsored events" ], [ "More details", "other" ] ]
 
+  .row.other-location
+    .col-sm-3
+    .col-sm-9.other-location-field
+
   %hr
 
   .row
@@ -75,16 +79,13 @@
     .col-sm-3
       = form.label :people_involved
     .col-sm-9
-      = form.number_field :people_involved
-
-  %hr
+      = form.number_field :people_involved, placeholder: 'Enter a Number'
 
   .people-involved-form
     .row
       .col-sm-3
         %label Details of People Involved
-      .col-sm-9
-        /= form.fields_for :people_involves do | people |
+      .col-sm-9.people-involved-fields
 
   %hr
 
