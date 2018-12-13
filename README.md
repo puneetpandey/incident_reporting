@@ -6,6 +6,8 @@ The 2 part of the form allows user to fill in each and every detail about the in
 
 This application is built in Ruby on Rails and using Postgres as Database.
 
+The demo of the application can be found at: https://shielded-spire-58205.herokuapp.com/
+
 # Technical Specifications
 
 * Ruby version: 2.5.3
