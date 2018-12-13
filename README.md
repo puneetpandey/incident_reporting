@@ -1,4 +1,4 @@
-# README
+# About Incident Reporting
 
 Welcome to Incident Reporting system! This application enables parents/teachers to report incident / any suspicious activitiy they observe inside school.
 
