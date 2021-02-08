@@ -31,7 +31,7 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'haml'
 gem 'carrierwave-aws'
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 gem 'aws-sdk-rails'
 gem 'aws-sdk-s3', '~> 1'
 
